@@ -76,6 +76,7 @@ namespace Consul
         public static KVTxnVerb Lock { get; } = new KVTxnVerb() { Operation = "lock" };
         public static KVTxnVerb Unlock { get; } = new KVTxnVerb() { Operation = "unlock" };
         public static KVTxnVerb Get { get; } = new KVTxnVerb() { Operation = "get" };
+        public static KVTxnVerb GetOrEmpty { get; } = new KVTxnVerb() { Operation = "get-or-empty" };
         public static KVTxnVerb GetTree { get; } = new KVTxnVerb() { Operation = "get-tree" };
         public static KVTxnVerb CheckSession { get; } = new KVTxnVerb() { Operation = "check-session" };
         public static KVTxnVerb CheckIndex { get; } = new KVTxnVerb() { Operation = "check-index" };
@@ -130,6 +131,8 @@ namespace Consul
                     return KVTxnVerb.Unlock;
                 case "get":
                     return KVTxnVerb.Get;
+                case "get-or-empty":
+                    return KVTxnVerb.GetOrEmpty;
                 case "get-tree":
                     return KVTxnVerb.GetTree;
                 case "check-session":
